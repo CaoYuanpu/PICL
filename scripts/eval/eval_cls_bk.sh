@@ -14,8 +14,8 @@ DISTRIBUTED_ARGS="--nproc_per_node $GPUS_PER_NODE \
 
 # model
 BASE_PATH=${1}
-CKPT_NAME=${7-"picl-large"}
-CKPT="${BASE_PATH}/results/pretrain/${CKPT_NAME}/"
+CKPT_NAME=${7-"gpt2-large"}
+CKPT="${BASE_PATH}/results/${CKPT_NAME}/"
 # data
 DATA_NAMES="EVAL"
 DATA_DIR="${BASE_PATH}/data/"
