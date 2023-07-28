@@ -121,6 +121,12 @@ class BaseDataset(Dataset):
             ck = DATA_CONFIG[dn].check_allowed(pn, self.split) and \
                     (self.split != "train" or train_prompts is None or pn.replace(" ", "_") in train_prompts) and \
                         (self.split == "train" or eval_prompts is None or pn.replace(" ", "_") in eval_prompts)
+            print('in _check_data_prompt')
+            print(self.split)
+            print(train_prompts)
+            print(eval_prompts)
+            print(ck)
+            input()
             return ck
         
         collection = TemplateCollection()
