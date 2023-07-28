@@ -126,6 +126,8 @@ class BaseDataset(Dataset):
         collection = TemplateCollection()
         data_prompts = {}
         data_prompt_names = []
+        print('data_names:')
+        print(data_names)
         for data_name in data_names:
             prompts = collection.get_dataset(*DATA_CONFIG[data_name].name)
             print('data_name:', data_name)
@@ -137,7 +139,11 @@ class BaseDataset(Dataset):
                 if _check_data_prompt(data_name, prompt_name):
                     data_prompts[data_name][prompt_name] = prompts[prompt_name]
                     data_prompt_names.append((data_name, prompt_name))
-
+        print('data_prompts:')
+        print(data_prompts)
+        print('data_prompt_names:')
+        print(data_prompt_names)
+        input()
         return data_prompts, data_prompt_names
     
     def _get_cache_path(self, data_name, prompt_name):
