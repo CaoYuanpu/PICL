@@ -201,8 +201,6 @@ def evaluate(args, tokenizer, model, dataset: ICLEvalCLSDataset, epoch, device):
 
 
 def evaluate_all(args, tokenizer, model, dataset: ICLEvalCLSDataset, split, epoch, device):
-    print(dataset.data_prompts)
-    input()
     all_eval_res = MultiPromptResults(dataset.data_prompts)
     for data_name, prompt_name in dataset.data_prompt_names:
         dataset.set_name_prompt(data_name, prompt_name)
@@ -213,7 +211,7 @@ def evaluate_all(args, tokenizer, model, dataset: ICLEvalCLSDataset, split, epoc
             continue
 
         eval_res, gold_loss, gold_tot_loss, all_labels_str, all_preds_str = evaluate(args, tokenizer, model, dataset, epoch, device)
-
+                
         print_rank(f"{split} | {data_name} | {prompt_name}")
         print_rank(f"{eval_res} | {gold_loss}")
         all_eval_res.add_res(dataset.data_name, dataset.prompt_name, eval_res)
