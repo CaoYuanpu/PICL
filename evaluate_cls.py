@@ -202,6 +202,7 @@ def evaluate(args, tokenizer, model, dataset: ICLEvalCLSDataset, epoch, device):
 
 def evaluate_all(args, tokenizer, model, dataset: ICLEvalCLSDataset, split, epoch, device):
     print(dataset.data_prompts)
+    print(dataset.data_prompt_names)
     input()
     all_eval_res = MultiPromptResults(dataset.data_prompts)
     for data_name, prompt_name in dataset.data_prompt_names:
