@@ -128,6 +128,9 @@ class BaseDataset(Dataset):
         data_prompt_names = []
         for data_name in data_names:
             prompts = collection.get_dataset(*DATA_CONFIG[data_name].name)
+            print('data_name:', data_name)
+            print('prompts:', prompts)
+            input()
             data_prompts[data_name] = {}
             for prompt_name in prompts.all_template_names:
                 if _check_data_prompt(data_name, prompt_name):
