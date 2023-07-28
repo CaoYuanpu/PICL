@@ -137,13 +137,15 @@ class BaseDataset(Dataset):
         print(data_names)
         for data_name in data_names:
             prompts = collection.get_dataset(*DATA_CONFIG[data_name].name)
-            prompts.all_template_names.append('Easy Prompt')
+            all_template_names = prompts.all_template_names
+            all_template_names.append('Easy Prompt')
             print('data_name:', data_name)
             print('prompts:', prompts)
-            print('all_template_names:', prompts.all_template_names)
+            print('all_template_names:', all_template_names)
             input()
             data_prompts[data_name] = {}
-            for prompt_name in prompts.all_template_names:
+            # for prompt_name in prompts.all_template_names:
+            for prompt_name in all_template_names:
                 if _check_data_prompt(data_name, prompt_name):
                     data_prompts[data_name][prompt_name] = prompts[prompt_name]
                     data_prompt_names.append((data_name, prompt_name))
