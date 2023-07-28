@@ -130,6 +130,7 @@ class BaseDataset(Dataset):
             prompts = collection.get_dataset(*DATA_CONFIG[data_name].name)
             print('data_name:', data_name)
             print('prompts:', prompts)
+            print('all_template_names:', prompts.all_template_names)
             input()
             data_prompts[data_name] = {}
             for prompt_name in prompts.all_template_names:
